@@ -1,0 +1,7 @@
+data
+env
+*.swp
+*.sqo
+*~
+*.pyc
+__pycache__
