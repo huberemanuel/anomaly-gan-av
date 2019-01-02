@@ -109,7 +109,8 @@ class DCGAN(object):
 		for i in range(images.shape[0]):
 			plt.subplot(4, 4, i+1)
 			image = images[i, :, :, :]
-			image = np.reshape(image, [self.height, self.width])
+			image = (image + 1) / 2
+			image = np.reshape(image, [self.width, self.height, self.channels])
 			plt.imshow(image)
 			plt.axis('off')
 		plt.tight_layout()
@@ -148,7 +149,7 @@ elif flags.dataset == 'donkey':
 
 # print(flags)
 gan = DCGAN(width=flags.input_width, height=flags.input_height, channels=flags.channels)
-gan.train(dataset)
+gan.train(dataset, epochs=1)
 gan.discriminator.save_weights('models/0{}_discrminator.h5'.format(flags.dataset))
 gan.generator.save_weights('models/{0}_generator.h5'.format(flags.dataset))
 gan.combined.save_weights('models/{0}_combined.h5'.format(flags.dataset))
