@@ -117,5 +117,5 @@ tf2-kdl==0.5.20
 tf2-py==0.5.20
 tf2-ros==0.5.20
 topic-tools==1.12.14
-Werkzeug==0.14.1
+Werkzeug==0.15.5
 xacro==1.11.3
